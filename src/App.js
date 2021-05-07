@@ -5,6 +5,7 @@ import Home from "./components/home";
 import NavBar from "./components/common/navbar";
 import NotFound from "./components/notFound";
 import Redirect from "react-router-dom/es/Redirect";
+import LoginForm from "./components/loginHome";
 
 function App() {
     return (
@@ -13,12 +14,12 @@ function App() {
             <div className="container">
                 <div className="content">
                     <Switch>
-                        <Route path="/posts"
-                               render={props => <Posts sortBy="newest" {...props} />}
-                        />
-                        <Route path="/not-found" exact component={NotFound} />
+                        <Route path="/login" component={LoginForm} />
+                        <Route path="/posts" component={Posts}/>
+                        <Route path="/not-found" component={NotFound} />
                         <Route path="/" exact component={Home} />
                         <Redirect to="/not-found" />
+
                     </Switch>
                 </div>
             </div>
